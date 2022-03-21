@@ -48,14 +48,17 @@ public class Services {
 		Pokemon updatedMon = oldMon;
 		
 		// Saving the new pokemon into DB
-		return repo.save(updatedMon);
-		
-		
+		return repo.save(updatedMon);	
 	}
 
 	public boolean deleteById(long id) {
 		repo.deleteById(id);
 		return true;	
+	}
+
+	public boolean deleteAll() {
+		repo.deleteAll();
+		return true;
 	}
 
 }

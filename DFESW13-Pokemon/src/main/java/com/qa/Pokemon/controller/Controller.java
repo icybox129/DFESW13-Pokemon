@@ -54,10 +54,17 @@ public class Controller {
 		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
 	}
 	
-	@DeleteMapping("delete/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteById(@PathVariable("id") long id) {
 		services.deleteById(id);
 		String response = "ID: " + id + " removed from database";
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
+	
+	@DeleteMapping("/deleteAll")
+	public ResponseEntity<String> deleteAll() {
+		services.deleteAll();
+		String response = "All database entries have been deleted!";
 		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
 	}
 }
