@@ -65,9 +65,18 @@ public class Services {
 		return repo.findByType(type);
 	}
 
-	public List<Pokemon> getByName(String name) {
+	public Pokemon getByName(String name) {
 		return repo.findByName(name);	
 	}
-	
 
+	public String checkTypeEffectiveness(String name) {
+		Pokemon checkMon = getByName(name);
+		
+		if(checkMon.getType().equals("Fire")) {
+			return checkMon.getName() + " is weak to: Water, Ground and Rock moves!";
+		} else {
+			return checkMon.getName() + " is not a fire type pokemon!";
+		} 	
+	}
+	
 }

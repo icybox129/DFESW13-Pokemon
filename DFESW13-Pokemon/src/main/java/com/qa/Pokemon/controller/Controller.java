@@ -71,10 +71,15 @@ public class Controller {
 		return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
 	}
 	
-	@GetMapping("getName/{name}")
-	public ResponseEntity<List<Pokemon>> getByName(@PathVariable("name") String name) {
-		List<Pokemon> result = services.getByName(name);
+	@GetMapping("/getName/{name}")
+	public ResponseEntity<Pokemon> getByName(@PathVariable("name") String name) {
+		Pokemon result = services.getByName(name);
 		return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
 	}
 	
+	@GetMapping("/checkType/{name}")
+	public ResponseEntity<String> checkTypeEffectiveness(@PathVariable("name") String name) {
+		String result = services.checkTypeEffectiveness(name);
+		return new ResponseEntity<>(result, HttpStatus.ACCEPTED);	
+	}
 }

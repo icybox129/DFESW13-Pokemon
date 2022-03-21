@@ -10,5 +10,6 @@ public interface Repo extends JpaRepository<Pokemon, Long> {
 
 	public List<Pokemon> findByType(String type);
 	
-	public List<Pokemon> findByName(String name);
+	public Pokemon findByName(String name);
+
 }
