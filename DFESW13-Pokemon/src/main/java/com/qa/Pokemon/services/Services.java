@@ -1,5 +1,7 @@
 package com.qa.Pokemon.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.qa.Pokemon.model.Pokemon;
@@ -19,6 +21,10 @@ public class Services {
 		Pokemon savedObj = repo.save(mon);
 		return savedObj;
 		
+	}
+
+	public List<Pokemon> getAll() {
+		return repo.findAll();
 	}
 
 }
