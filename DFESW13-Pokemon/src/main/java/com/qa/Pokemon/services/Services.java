@@ -27,4 +27,8 @@ public class Services {
 		return repo.findAll();
 	}
 
+	public Pokemon getById(long id) {
+		return repo.findById(id).get();
+	}
+
 }
