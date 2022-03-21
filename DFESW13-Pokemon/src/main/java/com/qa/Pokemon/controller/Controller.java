@@ -67,4 +67,10 @@ public class Controller {
 		String response = "All database entries have been deleted!";
 		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
 	}
+	
+	@GetMapping("/getType/{type}")
+	public ResponseEntity<List<Pokemon>> getByType(@PathVariable("type") String type) {
+		List<Pokemon> result = services.getByType(type);
+		return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
+	}
 }
