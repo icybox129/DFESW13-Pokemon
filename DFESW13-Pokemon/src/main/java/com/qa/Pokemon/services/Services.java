@@ -53,4 +53,9 @@ public class Services {
 		
 	}
 
+	public boolean deleteById(long id) {
+		repo.deleteById(id);
+		return true;	
+	}
+
 }

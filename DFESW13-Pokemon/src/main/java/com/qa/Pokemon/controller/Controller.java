@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,6 +51,13 @@ public class Controller {
 	public ResponseEntity<String> updateById(@PathVariable("id") long id, @RequestBody Pokemon mon) {
 		services.updateById(id, mon);
 		String response = mon.getName() + " has been updated!";
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
+	
+	@DeleteMapping("delete/{id}")
+	public ResponseEntity<String> deleteById(@PathVariable("id") long id) {
+		services.deleteById(id);
+		String response = "ID: " + id + " removed from database";
 		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
 	}
 }
