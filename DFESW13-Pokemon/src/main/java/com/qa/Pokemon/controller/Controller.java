@@ -27,7 +27,6 @@ public class Controller {
 
 	@PostMapping("/createMon")
 	public ResponseEntity<String> createMon(@RequestBody Pokemon mon){
-		
 		services.createMon(mon);
 		String response = mon.getName() + " added!";
 		return new ResponseEntity<String>(response, HttpStatus.CREATED);
@@ -35,14 +34,12 @@ public class Controller {
 	
 	@GetMapping("/getAll")
 	public ResponseEntity<List<Pokemon>> getAll(){
-		
 		List<Pokemon> result = services.getAll();
 		return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
 	}
 	
 	@GetMapping("/getId/{id}")
 	public ResponseEntity<Pokemon> getById(@PathVariable("id") long id) {
-		
 		Pokemon result = services.getById(id);
 		return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
 	}
@@ -73,4 +70,11 @@ public class Controller {
 		List<Pokemon> result = services.getByType(type);
 		return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
 	}
+	
+	@GetMapping("getName/{name}")
+	public ResponseEntity<List<Pokemon>> getByName(@PathVariable("name") String name) {
+		List<Pokemon> result = services.getByName(name);
+		return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
+	}
+	
 }

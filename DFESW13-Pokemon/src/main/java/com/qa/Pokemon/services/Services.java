@@ -65,4 +65,9 @@ public class Services {
 		return repo.findByType(type);
 	}
 
+	public List<Pokemon> getByName(String name) {
+		return repo.findByName(name);	
+	}
+	
+
 }
