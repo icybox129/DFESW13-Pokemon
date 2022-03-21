@@ -15,8 +15,8 @@ public class Pokemon {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(nullable = false)
-	private int ndex;
+	@Column(nullable = false, length = 10)
+	private String ndex;
 	
 	@Column(nullable = false, length = 100)
 	private String name;
@@ -41,8 +41,8 @@ public class Pokemon {
 		
 	}
 
-	// With ID - for retrieving data from DB
-	public Pokemon(long id, int ndex, String name, String type, String gender, float height, float weight, int bst) {
+	// With ID for retrieving data from DB
+	public Pokemon(long id, String ndex, String name, String type, String gender, float height, float weight, int bst) {
 		super();
 		this.id = id;
 		this.ndex = ndex;
@@ -54,8 +54,8 @@ public class Pokemon {
 		this.bst = bst;
 	}
 
-	// Without ID - for posting data into DB
-	public Pokemon(int ndex, String name, String type, String gender, float height, float weight, int bst) {
+	// Without ID for posting data into DB
+	public Pokemon(String ndex, String name, String type, String gender, float height, float weight, int bst) {
 		super();
 		this.ndex = ndex;
 		this.name = name;
@@ -74,11 +74,11 @@ public class Pokemon {
 		this.id = id;
 	}
 
-	public int getNdex() {
+	public String getNdex() {
 		return ndex;
 	}
 
-	public void setNdex(int ndex) {
+	public void setNdex(String ndex) {
 		this.ndex = ndex;
 	}
 
@@ -146,7 +146,8 @@ public class Pokemon {
 		Pokemon other = (Pokemon) obj;
 		return bst == other.bst && Objects.equals(gender, other.gender)
 				&& Float.floatToIntBits(height) == Float.floatToIntBits(other.height) && id == other.id
-				&& Objects.equals(name, other.name) && ndex == other.ndex && Objects.equals(type, other.type)
+				&& Objects.equals(name, other.name) && Objects.equals(ndex, other.ndex)
+				&& Objects.equals(type, other.type)
 				&& Float.floatToIntBits(weight) == Float.floatToIntBits(other.weight);
 	}
 
@@ -155,6 +156,6 @@ public class Pokemon {
 		return "Pokemon [id=" + id + ", ndex=" + ndex + ", name=" + name + ", type=" + type + ", gender=" + gender
 				+ ", height=" + height + ", weight=" + weight + ", bst=" + bst + "]";
 	}
-	
+
 	
 }
