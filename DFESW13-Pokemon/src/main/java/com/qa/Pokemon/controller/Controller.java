@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -43,5 +44,12 @@ public class Controller {
 		
 		Pokemon result = services.getById(id);
 		return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
+	}
+	
+	@PutMapping("/update/{id}")
+	public ResponseEntity<String> updateById(@PathVariable("id") long id, @RequestBody Pokemon mon) {
+		services.updateById(id, mon);
+		String response = mon.getName() + " has been updated!";
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
 	}
 }

@@ -31,4 +31,26 @@ public class Services {
 		return repo.findById(id).get();
 	}
 
+	public Pokemon updateById(long id, Pokemon mon) {
+		// Find the object we want to update
+		Pokemon oldMon = getById(id);
+		
+		// Update the properties of this object, passing in new values
+		oldMon.setNdex(mon.getNdex());
+		oldMon.setName(mon.getName());
+		oldMon.setType(mon.getType());
+		oldMon.setGender(mon.getGender());
+		oldMon.setHeight(mon.getHeight());
+		oldMon.setWeight(mon.getWeight());
+		oldMon.setBst(mon.getBst());
+		
+		// Creating a new pokemon
+		Pokemon updatedMon = oldMon;
+		
+		// Saving the new pokemon into DB
+		return repo.save(updatedMon);
+		
+		
+	}
+
 }
