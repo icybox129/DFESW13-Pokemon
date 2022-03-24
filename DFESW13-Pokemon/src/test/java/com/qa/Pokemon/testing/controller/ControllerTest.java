@@ -35,7 +35,7 @@ public class ControllerTest {
 	@Autowired ObjectMapper map;
 	
 	@Test
-	void createTest() throws Exception {
+	void createMonTest() throws Exception {
 		
 		Pokemon create = new Pokemon("135", "Jolteon", "Electric", "Male", 0.8f, 24.5f, 525);
 		String createJSON = this.map.writeValueAsString(create);

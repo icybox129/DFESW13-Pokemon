@@ -143,7 +143,7 @@ public class Services {
 		} else if (checkMon.getType().equals("Normal Dragon") || (checkMon.getType().equals("Dragon Normal"))) {
 			return checkMon.getName() + " is weak to: Ice, Fighting, Dragon and Fairy type moves!";
 		
-		} else if (checkMon.getType().equals("Water Dark") || (checkMon.getType().equals("Dark Water"))) {
+		} else if (checkMon.getType().equals("Normal Dark") || (checkMon.getType().equals("Dark Normal"))) {
 			return checkMon.getName() + " is weak to: Fighting (4x), Bug and Fairy type moves!";
 		
 		} else if (checkMon.getType().equals("Normal Fairy") || (checkMon.getType().equals("Fairy Normal"))) {
