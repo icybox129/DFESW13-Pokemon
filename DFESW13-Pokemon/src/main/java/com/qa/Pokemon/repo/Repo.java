@@ -15,5 +15,9 @@ public interface Repo extends JpaRepository<Pokemon, Long> {
 	public List<Pokemon> findByOrderByBstDesc();
 	
 	public List<Pokemon> findByOrderByBstAsc();
+	
+	public List<Pokemon> findByOrderByNdexDesc();
+	
+	public List<Pokemon> findByOrderByNdexAsc();
 
 }

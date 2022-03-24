@@ -75,6 +75,15 @@ public class Services {
 	public List<Pokemon> sortByBstAsc() {
 		return repo.findByOrderByBstAsc();
 	}
+	
+	public List<Pokemon> sortByNdexDesc() {
+		return repo.findByOrderByNdexDesc();
+	}
+
+	public List<Pokemon> sortByNdexAsc() {
+		return repo.findByOrderByNdexAsc();
+	}
+
 
 	public String checkTypeEffectiveness(String name) {
 		Pokemon checkMon = getByName(name);

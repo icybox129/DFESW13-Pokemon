@@ -15,7 +15,7 @@ public class Pokemon {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(nullable = false, length = 10)
+	@Column(nullable = false, length = 10, unique = true)
 	private String ndex;
 	
 	@Column(nullable = false, length = 100)

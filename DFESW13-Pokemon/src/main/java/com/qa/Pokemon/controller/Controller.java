@@ -89,6 +89,18 @@ public class Controller {
 		return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
 	}
 	
+	@GetMapping("/ndexDesc")
+	public ResponseEntity<List<Pokemon>> sortByNdexDesc() {
+		List<Pokemon> result = services.sortByNdexDesc();
+		return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("/ndexAsc")
+	public ResponseEntity<List<Pokemon>> sortByNdexAsc() {
+		List<Pokemon> result = services.sortByNdexAsc();
+		return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
+	}
+	
 	@GetMapping("/checkType/{name}")
 	public ResponseEntity<String> checkTypeEffectiveness(@PathVariable("name") String name) {
 		String result = services.checkTypeEffectiveness(name);
