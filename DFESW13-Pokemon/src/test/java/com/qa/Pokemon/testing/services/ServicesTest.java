@@ -232,6 +232,8 @@ public class ServicesTest {
 		Mockito.verify(this.repo, Mockito.times(1)).findByName("Random");
 	}
 	
+	// =======================================================================================================
+	// NORMAL TYPE TESTING
 	@Test
 	void checkTypeEffectivenessNormalTest() {
 		//GIVEN
@@ -550,4 +552,311 @@ public class ServicesTest {
 		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
 		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonTwo");
 	}
+	
+	// =======================================================================================================
+	// FIGHTING TYPE TESTING
+	
+	@Test
+	void checkTypeEffectivenessFightingTest() {
+		//GIVEN
+		Pokemon monOne = new Pokemon(999L, "999", "testMonOne", "Fighting", "Male", 9.9f, 9.9f, 999);
+		String resultOne = "testMonOne is weak to: Flying, Psychic and Fairy type moves!";
+		// WHEN
+		Mockito.when(this.repo.findByName("testMonOne")).thenReturn(monOne);	
+		// THEN
+		assertThat(this.services.checkTypeEffectiveness("testMonOne")).isEqualTo(resultOne);	
+		// VERIFY
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
+	}
+	
+	@Test
+	void checkTypeEffectivenessFightingFlyingTest() {
+		//GIVEN
+		Pokemon monOne = new Pokemon(999L, "999", "testMonOne", "Fighting Flying", "Male", 9.9f, 9.9f, 999);
+		Pokemon monTwo = new Pokemon(999L, "999", "testMonTwo", "Flying Fighting", "Male", 9.9f, 9.9f, 999);
+		String resultOne = "testMonOne is weak to: Electric, Ice, Flying Psychic and Fairy type moves!";
+		String resultTwo = "testMonTwo is weak to: Electric, Ice, Flying Psychic and Fairy type moves!";
+		// WHEN
+		Mockito.when(this.repo.findByName("testMonOne")).thenReturn(monOne);
+		Mockito.when(this.repo.findByName("testMonTwo")).thenReturn(monTwo);
+		// THEN
+		assertThat(this.services.checkTypeEffectiveness("testMonOne")).isEqualTo(resultOne);
+		assertThat(this.services.checkTypeEffectiveness("testMonTwo")).isEqualTo(resultTwo);
+		// VERIFY
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonTwo");
+	}
+	
+	@Test
+	void checkTypeEffectivenessFightingPoisonTest() {
+		//GIVEN
+		Pokemon monOne = new Pokemon(999L, "999", "testMonOne", "Fighting Poison", "Male", 9.9f, 9.9f, 999);
+		Pokemon monTwo = new Pokemon(999L, "999", "testMonTwo", "Poison Fighting", "Male", 9.9f, 9.9f, 999);
+		String resultOne = "testMonOne is weak to: Ground, Flying and Psychic type moves!";
+		String resultTwo = "testMonTwo is weak to: Ground, Flying and Psychic type moves!";
+		// WHEN
+		Mockito.when(this.repo.findByName("testMonOne")).thenReturn(monOne);
+		Mockito.when(this.repo.findByName("testMonTwo")).thenReturn(monTwo);
+		// THEN
+		assertThat(this.services.checkTypeEffectiveness("testMonOne")).isEqualTo(resultOne);
+		assertThat(this.services.checkTypeEffectiveness("testMonTwo")).isEqualTo(resultTwo);
+		// VERIFY
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonTwo");
+	}
+	
+	@Test
+	void checkTypeEffectivenessFightingGroundTest() {
+		//GIVEN
+		Pokemon monOne = new Pokemon(999L, "999", "testMonOne", "Fighting Ground", "Male", 9.9f, 9.9f, 999);
+		Pokemon monTwo = new Pokemon(999L, "999", "testMonTwo", "Ground Fighting", "Male", 9.9f, 9.9f, 999);
+		String resultOne = "testMonOne is weak to: Water, Grass, Ice, Flying, Psychic and Fairy type moves!";
+		String resultTwo = "testMonTwo is weak to: Water, Grass, Ice, Flying, Psychic and Fairy type moves!";
+		// WHEN
+		Mockito.when(this.repo.findByName("testMonOne")).thenReturn(monOne);
+		Mockito.when(this.repo.findByName("testMonTwo")).thenReturn(monTwo);
+		// THEN
+		assertThat(this.services.checkTypeEffectiveness("testMonOne")).isEqualTo(resultOne);
+		assertThat(this.services.checkTypeEffectiveness("testMonTwo")).isEqualTo(resultTwo);
+		// VERIFY
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonTwo");
+	}
+	
+	@Test
+	void checkTypeEffectivenessFightingRockTest() {
+		//GIVEN
+		Pokemon monOne = new Pokemon(999L, "999", "testMonOne", "Fighting Rock", "Male", 9.9f, 9.9f, 999);
+		Pokemon monTwo = new Pokemon(999L, "999", "testMonTwo", "Rock Fighting", "Male", 9.9f, 9.9f, 999);
+		String resultOne = "testMonOne is weak to: Water, Grass, Fighting, Ground, Psychic, Steel and Fairy type moves!";
+		String resultTwo = "testMonTwo is weak to: Water, Grass, Fighting, Ground, Psychic, Steel and Fairy type moves!";
+		// WHEN
+		Mockito.when(this.repo.findByName("testMonOne")).thenReturn(monOne);
+		Mockito.when(this.repo.findByName("testMonTwo")).thenReturn(monTwo);
+		// THEN
+		assertThat(this.services.checkTypeEffectiveness("testMonOne")).isEqualTo(resultOne);
+		assertThat(this.services.checkTypeEffectiveness("testMonTwo")).isEqualTo(resultTwo);
+		// VERIFY
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonTwo");
+	}
+	
+	@Test
+	void checkTypeEffectivenessFightingBugTest() {
+		//GIVEN
+		Pokemon monOne = new Pokemon(999L, "999", "testMonOne", "Fighting Bug", "Male", 9.9f, 9.9f, 999);
+		Pokemon monTwo = new Pokemon(999L, "999", "testMonTwo", "Bug Fighting", "Male", 9.9f, 9.9f, 999);
+		String resultOne = "testMonOne is weak to: Fire, Flying (4x), Psychic and Fairy type moves!";
+		String resultTwo = "testMonTwo is weak to: Fire, Flying (4x), Psychic and Fairy type moves!";
+		// WHEN
+		Mockito.when(this.repo.findByName("testMonOne")).thenReturn(monOne);
+		Mockito.when(this.repo.findByName("testMonTwo")).thenReturn(monTwo);
+		// THEN
+		assertThat(this.services.checkTypeEffectiveness("testMonOne")).isEqualTo(resultOne);
+		assertThat(this.services.checkTypeEffectiveness("testMonTwo")).isEqualTo(resultTwo);
+		// VERIFY
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonTwo");
+	}
+	
+	@Test
+	void checkTypeEffectivenessFightingGhostTest() {
+		//GIVEN
+		Pokemon monOne = new Pokemon(999L, "999", "testMonOne", "Fighting Ghost", "Male", 9.9f, 9.9f, 999);
+		Pokemon monTwo = new Pokemon(999L, "999", "testMonTwo", "Ghost Fighting", "Male", 9.9f, 9.9f, 999);
+		String resultOne = "testMonOne is weak to: Flying, Psychic, Ghost and Fairy type moves!";
+		String resultTwo = "testMonTwo is weak to: Flying, Psychic, Ghost and Fairy type moves!";
+		// WHEN
+		Mockito.when(this.repo.findByName("testMonOne")).thenReturn(monOne);
+		Mockito.when(this.repo.findByName("testMonTwo")).thenReturn(monTwo);
+		// THEN
+		assertThat(this.services.checkTypeEffectiveness("testMonOne")).isEqualTo(resultOne);
+		assertThat(this.services.checkTypeEffectiveness("testMonTwo")).isEqualTo(resultTwo);
+		// VERIFY
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonTwo");
+	}
+	
+	@Test
+	void checkTypeEffectivenessFightingSteelTest() {
+		//GIVEN
+		Pokemon monOne = new Pokemon(999L, "999", "testMonOne", "Fighting Steel", "Male", 9.9f, 9.9f, 999);
+		Pokemon monTwo = new Pokemon(999L, "999", "testMonTwo", "Steel Fighting", "Male", 9.9f, 9.9f, 999);
+		String resultOne = "testMonOne is weak to: Fire, Fighting and Ground type moves!";
+		String resultTwo = "testMonTwo is weak to: Fire, Fighting and Ground type moves!";
+		// WHEN
+		Mockito.when(this.repo.findByName("testMonOne")).thenReturn(monOne);
+		Mockito.when(this.repo.findByName("testMonTwo")).thenReturn(monTwo);
+		// THEN
+		assertThat(this.services.checkTypeEffectiveness("testMonOne")).isEqualTo(resultOne);
+		assertThat(this.services.checkTypeEffectiveness("testMonTwo")).isEqualTo(resultTwo);
+		// VERIFY
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonTwo");
+	}
+	
+	@Test
+	void checkTypeEffectivenessFightingFireTest() {
+		//GIVEN
+		Pokemon monOne = new Pokemon(999L, "999", "testMonOne", "Fighting Fire", "Male", 9.9f, 9.9f, 999);
+		Pokemon monTwo = new Pokemon(999L, "999", "testMonTwo", "Fire Fighting", "Male", 9.9f, 9.9f, 999);
+		String resultOne = "testMonOne is weak to: Water, Ground, Flying and Psychic type moves!";
+		String resultTwo = "testMonTwo is weak to: Water, Ground, Flying and Psychic type moves!";
+		// WHEN
+		Mockito.when(this.repo.findByName("testMonOne")).thenReturn(monOne);
+		Mockito.when(this.repo.findByName("testMonTwo")).thenReturn(monTwo);
+		// THEN
+		assertThat(this.services.checkTypeEffectiveness("testMonOne")).isEqualTo(resultOne);
+		assertThat(this.services.checkTypeEffectiveness("testMonTwo")).isEqualTo(resultTwo);
+		// VERIFY
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonTwo");
+	}
+	
+	@Test
+	void checkTypeEffectivenessFightingWaterTest() {
+		//GIVEN
+		Pokemon monOne = new Pokemon(999L, "999", "testMonOne", "Fighting Water", "Male", 9.9f, 9.9f, 999);
+		Pokemon monTwo = new Pokemon(999L, "999", "testMonTwo", "Water Fighting", "Male", 9.9f, 9.9f, 999);
+		String resultOne = "testMonOne is weak to: Electric, Grass, Flying, Psychic and Fairy type moves!";
+		String resultTwo = "testMonTwo is weak to: Electric, Grass, Flying, Psychic and Fairy type moves!";
+		// WHEN
+		Mockito.when(this.repo.findByName("testMonOne")).thenReturn(monOne);
+		Mockito.when(this.repo.findByName("testMonTwo")).thenReturn(monTwo);
+		// THEN
+		assertThat(this.services.checkTypeEffectiveness("testMonOne")).isEqualTo(resultOne);
+		assertThat(this.services.checkTypeEffectiveness("testMonTwo")).isEqualTo(resultTwo);
+		// VERIFY
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonTwo");
+	}
+	
+	@Test
+	void checkTypeEffectivenessFightingGrassTest() {
+		//GIVEN
+		Pokemon monOne = new Pokemon(999L, "999", "testMonOne", "Fighting Grass", "Male", 9.9f, 9.9f, 999);
+		Pokemon monTwo = new Pokemon(999L, "999", "testMonTwo", "Grass Fighting", "Male", 9.9f, 9.9f, 999);
+		String resultOne = "testMonOne is weak to: Fire, Ice, Poison, Flying (4x), Psychic and Fairy type moves!";
+		String resultTwo = "testMonTwo is weak to: Fire, Ice, Poison, Flying (4x), Psychic and Fairy type moves!";
+		// WHEN
+		Mockito.when(this.repo.findByName("testMonOne")).thenReturn(monOne);
+		Mockito.when(this.repo.findByName("testMonTwo")).thenReturn(monTwo);
+		// THEN
+		assertThat(this.services.checkTypeEffectiveness("testMonOne")).isEqualTo(resultOne);
+		assertThat(this.services.checkTypeEffectiveness("testMonTwo")).isEqualTo(resultTwo);
+		// VERIFY
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonTwo");
+	}
+	
+	@Test
+	void checkTypeEffectivenessFightingElectricTest() {
+		//GIVEN
+		Pokemon monOne = new Pokemon(999L, "999", "testMonOne", "Fighting Electric", "Male", 9.9f, 9.9f, 999);
+		Pokemon monTwo = new Pokemon(999L, "999", "testMonTwo", "Electric Fighting", "Male", 9.9f, 9.9f, 999);
+		String resultOne = "testMonOne is weak to: Ground, Psychic and Fairy type moves!";
+		String resultTwo = "testMonTwo is weak to: Ground, Psychic and Fairy type moves!";
+		// WHEN
+		Mockito.when(this.repo.findByName("testMonOne")).thenReturn(monOne);
+		Mockito.when(this.repo.findByName("testMonTwo")).thenReturn(monTwo);
+		// THEN
+		assertThat(this.services.checkTypeEffectiveness("testMonOne")).isEqualTo(resultOne);
+		assertThat(this.services.checkTypeEffectiveness("testMonTwo")).isEqualTo(resultTwo);
+		// VERIFY
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonTwo");
+	}
+	
+	@Test
+	void checkTypeEffectivenessFightingPsychicTest() {
+		//GIVEN
+		Pokemon monOne = new Pokemon(999L, "999", "testMonOne", "Fighting Psychic", "Male", 9.9f, 9.9f, 999);
+		Pokemon monTwo = new Pokemon(999L, "999", "testMonTwo", "Psychic Fighting", "Male", 9.9f, 9.9f, 999);
+		String resultOne = "testMonOne is weak to: Flying, Ghost and Fairy type moves!";
+		String resultTwo = "testMonTwo is weak to: Flying, Ghost and Fairy type moves!";
+		// WHEN
+		Mockito.when(this.repo.findByName("testMonOne")).thenReturn(monOne);
+		Mockito.when(this.repo.findByName("testMonTwo")).thenReturn(monTwo);
+		// THEN
+		assertThat(this.services.checkTypeEffectiveness("testMonOne")).isEqualTo(resultOne);
+		assertThat(this.services.checkTypeEffectiveness("testMonTwo")).isEqualTo(resultTwo);
+		// VERIFY
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonTwo");
+	}
+	
+	@Test
+	void checkTypeEffectivenessFightingIceTest() {
+		//GIVEN
+		Pokemon monOne = new Pokemon(999L, "999", "testMonOne", "Fighting Ice", "Male", 9.9f, 9.9f, 999);
+		Pokemon monTwo = new Pokemon(999L, "999", "testMonTwo", "Ice Fighting", "Male", 9.9f, 9.9f, 999);
+		String resultOne = "testMonOne is weak to: Fire, Fighting, Flying, Psychic, Steel and Fairy type moves!";
+		String resultTwo = "testMonTwo is weak to: Fire, Fighting, Flying, Psychic, Steel and Fairy type moves!";
+		// WHEN
+		Mockito.when(this.repo.findByName("testMonOne")).thenReturn(monOne);
+		Mockito.when(this.repo.findByName("testMonTwo")).thenReturn(monTwo);
+		// THEN
+		assertThat(this.services.checkTypeEffectiveness("testMonOne")).isEqualTo(resultOne);
+		assertThat(this.services.checkTypeEffectiveness("testMonTwo")).isEqualTo(resultTwo);
+		// VERIFY
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonTwo");
+	}
+	
+	@Test
+	void checkTypeEffectivenessFightingDragonTest() {
+		//GIVEN
+		Pokemon monOne = new Pokemon(999L, "999", "testMonOne", "Fighting Dragon", "Male", 9.9f, 9.9f, 999);
+		Pokemon monTwo = new Pokemon(999L, "999", "testMonTwo", "Dragon Fighting", "Male", 9.9f, 9.9f, 999);
+		String resultOne = "testMonOne is weak to: Ice, Flying, Psychic, Dragon and Fairy (4x) type moves!";
+		String resultTwo = "testMonTwo is weak to: Ice, Flying, Psychic, Dragon and Fairy (4x) type moves!";
+		// WHEN
+		Mockito.when(this.repo.findByName("testMonOne")).thenReturn(monOne);
+		Mockito.when(this.repo.findByName("testMonTwo")).thenReturn(monTwo);
+		// THEN
+		assertThat(this.services.checkTypeEffectiveness("testMonOne")).isEqualTo(resultOne);
+		assertThat(this.services.checkTypeEffectiveness("testMonTwo")).isEqualTo(resultTwo);
+		// VERIFY
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonTwo");
+	}
+	
+	@Test
+	void checkTypeEffectivenessFightingDarkTest() {
+		//GIVEN
+		Pokemon monOne = new Pokemon(999L, "999", "testMonOne", "Fighting Dark", "Male", 9.9f, 9.9f, 999);
+		Pokemon monTwo = new Pokemon(999L, "999", "testMonTwo", "Dark Fighting", "Male", 9.9f, 9.9f, 999);
+		String resultOne = "testMonOne is weak to: Fighting, Flying and Fairy (4x) type moves!";
+		String resultTwo = "testMonTwo is weak to: Fighting, Flying and Fairy (4x) type moves!";
+		// WHEN
+		Mockito.when(this.repo.findByName("testMonOne")).thenReturn(monOne);
+		Mockito.when(this.repo.findByName("testMonTwo")).thenReturn(monTwo);
+		// THEN
+		assertThat(this.services.checkTypeEffectiveness("testMonOne")).isEqualTo(resultOne);
+		assertThat(this.services.checkTypeEffectiveness("testMonTwo")).isEqualTo(resultTwo);
+		// VERIFY
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonTwo");
+	}
+	
+	@Test
+	void checkTypeEffectivenessFightingFairyTest() {
+		//GIVEN
+		Pokemon monOne = new Pokemon(999L, "999", "testMonOne", "Fighting Fairy", "Male", 9.9f, 9.9f, 999);
+		Pokemon monTwo = new Pokemon(999L, "999", "testMonTwo", "Fairy Fighting", "Male", 9.9f, 9.9f, 999);
+		String resultOne = "testMonOne is weak to: Poison, Flying, Psychic, Steel and Fairy type moves!";
+		String resultTwo = "testMonTwo is weak to: Poison, Flying, Psychic, Steel and Fairy type moves!";
+		// WHEN
+		Mockito.when(this.repo.findByName("testMonOne")).thenReturn(monOne);
+		Mockito.when(this.repo.findByName("testMonTwo")).thenReturn(monTwo);
+		// THEN
+		assertThat(this.services.checkTypeEffectiveness("testMonOne")).isEqualTo(resultOne);
+		assertThat(this.services.checkTypeEffectiveness("testMonTwo")).isEqualTo(resultTwo);
+		// VERIFY
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
+		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonTwo");
+	}
+	
+	// =======================================================================================================
+	// Flying TYPE TESTING
 }
