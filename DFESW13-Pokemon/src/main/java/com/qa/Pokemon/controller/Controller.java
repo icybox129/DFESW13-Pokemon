@@ -77,6 +77,18 @@ public class Controller {
 		return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
 	}
 	
+	@GetMapping("/bstDesc")
+	public ResponseEntity<List<Pokemon>> sortByBstDesc() {
+		List<Pokemon> result = services.sortByBstDesc();
+		return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
+		}
+	
+	@GetMapping("/bstAsc")
+	public ResponseEntity<List<Pokemon>> sortByBstAsc() {
+		List<Pokemon> result = services.sortByBstAsc();
+		return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
+	}
+	
 	@GetMapping("/checkType/{name}")
 	public ResponseEntity<String> checkTypeEffectiveness(@PathVariable("name") String name) {
 		String result = services.checkTypeEffectiveness(name);

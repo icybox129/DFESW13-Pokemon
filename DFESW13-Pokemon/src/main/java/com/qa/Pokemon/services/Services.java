@@ -67,6 +67,14 @@ public class Services {
 	public Pokemon getByName(String name) {
 		return repo.findByName(name);
 	}
+	
+	public List<Pokemon> sortByBstDesc() {
+		return repo.findByOrderByBstDesc();
+	}
+	
+	public List<Pokemon> sortByBstAsc() {
+		return repo.findByOrderByBstAsc();
+	}
 
 	public String checkTypeEffectiveness(String name) {
 		Pokemon checkMon = getByName(name);
@@ -624,4 +632,5 @@ public class Services {
 		}
 
 	}
+
 }
