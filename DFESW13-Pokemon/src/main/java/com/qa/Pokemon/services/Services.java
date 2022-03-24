@@ -96,6 +96,8 @@ public class Services {
 		if (checkMon.getType().equals("Normal")) {
 			return checkMon.getName() + " is weak to: Fighting type moves!";
 		
+		// Used a || operator because "normal fighting" and "fighting normal" are exactly the same
+		// technically the type could be entered into the DB either way so this catches both.
 		} else if (checkMon.getType().equals("Normal Fighting") || (checkMon.getType().equals("Fighting Normal"))) {
 			return checkMon.getName() + " is weak to: Fighting, Flying, Psychic and Fairy type moves!";
 		
