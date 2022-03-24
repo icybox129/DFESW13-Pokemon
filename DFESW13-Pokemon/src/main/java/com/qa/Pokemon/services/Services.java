@@ -358,7 +358,7 @@ public class Services {
 			return checkMon.getName() + " is weak to: Water (4x), Fighting and Ground (4x) type moves!";
 		
 		} else if (checkMon.getType().equals("Rock Water") || (checkMon.getType().equals("Water Rock"))) {
-			return checkMon.getName() + " is weak to: Electric, Grass (4x), Fighting and Ground type moves!";	
+			return checkMon.getName() + " is weak to: Electric, Grass (4x), Fighting and Ground type moves!";
 		
 		} else if (checkMon.getType().equals("Rock Grass") || (checkMon.getType().equals("Grass Rock"))) {
 			return checkMon.getName() + " is weak to: Ice, Fighting, Bug and Steel type moves!";
