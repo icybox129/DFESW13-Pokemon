@@ -406,34 +406,34 @@ public class Services {
 			return checkMon.getName() + " is weak to: Ghost and Dark type moves!";
 		
 		} else if (checkMon.getType().equals("Ghost Steel") || (checkMon.getType().equals("Steel Ghost"))) {
-			return checkMon.getName() + " is weak to:  type moves!";
+			return checkMon.getName() + " is weak to: Fire, Ground, Ghost and Dark type moves!";
 		
 		} else if (checkMon.getType().equals("Ghost Fire") || (checkMon.getType().equals("Fire Ghost"))) {
-			return checkMon.getName() + " is weak to:  type moves!";
+			return checkMon.getName() + " is weak to: Water, Ground, Rock, Ghost and Dark type moves!";
 		
 		} else if (checkMon.getType().equals("Ghost Water") || (checkMon.getType().equals("Water Ghost"))) {
-			return checkMon.getName() + " is weak to:  type moves!";
+			return checkMon.getName() + " is weak to: Electric, Grass, Ghost and Dark type moves!";
 		
 		} else if (checkMon.getType().equals("Ghost Grass") || (checkMon.getType().equals("Grass Ghost"))) {
-			return checkMon.getName() + " is weak to:  type moves!";
+			return checkMon.getName() + " is weak to: Fire, Ice, Flying, Ghost and Dark type moves!";
 		
 		} else if (checkMon.getType().equals("Ghost Electric") || (checkMon.getType().equals("Electric Ghost"))) {
-			return checkMon.getName() + " is weak to:  type moves!";
+			return checkMon.getName() + " is weak to: Ground, Ghost and Dark type moves!";
 		
 		} else if (checkMon.getType().equals("Ghost Psychic") || (checkMon.getType().equals("Psychic Ghost"))) {
-			return checkMon.getName() + " is weak to:  type moves!";
+			return checkMon.getName() + " is weak to: Ghost (4x) and Dark (4x) type moves!";
 		
 		} else if (checkMon.getType().equals("Ghost Ice") || (checkMon.getType().equals("Ice Ghost"))) {
-			return checkMon.getName() + " is weak to:  type moves!";
+			return checkMon.getName() + " is weak to: Fire, Rock, Ghost, Dark and Steel type moves!";
 		
 		} else if (checkMon.getType().equals("Ghost Dragon") || (checkMon.getType().equals("Dragon Ghost"))) {
-			return checkMon.getName() + " is weak to:  type moves!";
+			return checkMon.getName() + " is weak to: Ice, Ghost, Dragon, Dark and Fairy type moves!";
 		
 		} else if (checkMon.getType().equals("Ghost Dark") || (checkMon.getType().equals("Dark Ghost"))) {
-			return checkMon.getName() + " is weak to:  type moves!";
+			return checkMon.getName() + " is weak to: Fairy type moves!";
 		
 		} else if (checkMon.getType().equals("Ghost Fairy") || (checkMon.getType().equals("Fairy Ghost"))) {
-			return checkMon.getName() + " is weak to:  type moves!";
+			return checkMon.getName() + " is weak to: Ghost and Steel type moves!";
 			
 			
 		// Steel types
