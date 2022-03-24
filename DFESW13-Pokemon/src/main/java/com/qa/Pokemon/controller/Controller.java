@@ -59,7 +59,7 @@ public class Controller {
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteById(@PathVariable("id") long id) {
 		services.deleteById(id);
-		String response = "ID: " + id + " removed from database";
+		String response = "ID: " + id + " removed from the database";
 		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
 	}
 	
