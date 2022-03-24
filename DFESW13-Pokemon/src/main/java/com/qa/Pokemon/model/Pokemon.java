@@ -38,7 +38,6 @@ public class Pokemon {
 
 	public Pokemon() {
 		super();
-		
 	}
 
 	// With ID for retrieving data from DB
