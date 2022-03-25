@@ -9,6 +9,7 @@ Created by Nick Ciraki
 - [Possible improvments for future revisions of the project](#possible-improvements-for-future-revisions-of-the-project)
 - [Postman Requests & Outputs](#postman-requests-and-outputs)
 - [Jira Board](#jira-board)
+- [Risk Assessment](#risk-assessment)
 - [Instructions](#instructions)
 
 
@@ -102,6 +103,9 @@ Note: I switched from my production DB back to dev DB for the remainder of these
 ## Jira Board
 ### Here is a link to my [Jira Board][jira-link]
 [jira-link]: https://nickciraki.atlassian.net/jira/software/projects/PKMN/boards/1/roadmap
+
+## Risk Assessment
+![riskAssessment](https://i.imgur.com/ZvH1pSw.jpg)
 
 ## Instructions
 
