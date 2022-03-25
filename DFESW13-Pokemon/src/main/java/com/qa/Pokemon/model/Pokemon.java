@@ -15,6 +15,8 @@ public class Pokemon {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	// National dex number, a pokemon ID number. Must be unique
+	// Declared a string because JSON doesn't like leading zeroes
 	@Column(nullable = false, length = 10, unique = true)
 	private String ndex;
 	
@@ -33,6 +35,7 @@ public class Pokemon {
 	@Column(nullable = false)
 	private float weight;
 	
+	// Base stat value, determines how strong a pokemon can be
 	@Column(nullable = false)
 	private int bst;
 

@@ -88,10 +88,6 @@ public class Services {
 	public String checkTypeEffectiveness(String name) {
 		Pokemon checkMon = getByName(name);
 		
-		
-//	} else if (checkMon.getType().equals("") || (checkMon.getType().equals(""))) {
-//		return checkMon.getName() + " is weak to:  type moves!";
-
 		// Normal types
 		if (checkMon.getType().equals("Normal")) {
 			return checkMon.getName() + " is weak to: Fighting type moves!";
