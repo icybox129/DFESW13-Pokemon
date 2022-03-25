@@ -3254,5 +3254,4 @@ public class ServicesTest {
 		// VERIFY
 		Mockito.verify(this.repo, Mockito.times(1)).findByName("testMonOne");
 	}
-	
 }
