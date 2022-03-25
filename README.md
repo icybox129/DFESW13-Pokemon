@@ -42,7 +42,7 @@ creating the project and wanted to deliver something that I knew would work. I h
 could be a more advanced solution. There are plenty more functions/methods I could add in the future that would utilise many characteristics of pokemon
 that I did not include, such as movesets, evolutions, inividual stats etc.
 
-## Postman Requests & Outputs
+## Postman Requests and Outputs
 
 ### Creating a pokemon entry into DB:
 ![createMon](https://i.imgur.com/XKNppWg.jpeg)
