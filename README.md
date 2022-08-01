@@ -24,7 +24,7 @@ I felt like I got a good grasp of the skills being taught and could use them eff
 
 ## What went well? What didn't go as planned?
 Creating the basic CRUD functionality and custom queries went extremely well, I had pushed the commits for the CRUD functionality to their 
-respective branches all within a couple of hours.However one mistake I did make was when I was creating my feature branches, I didn't merge back
+respective branches all within a couple of hours. However one mistake I did make was when I was creating my feature branches, I didn't merge back
 into my 'dev' branch before branching off into a new feature branch. Instead I kept branching off the latest branch. I eventually corrected this by 
 merging my latest branch back into dev and then merging the latest branch into older branches I wanted to revisit and update.
 
